@@ -1,10 +1,27 @@
 <apex:page controller="contact_table" lightningStylesheets="true">
 <apex:pageBlock>
+  <table>
+    <tr>
+      <td>First Name</td>
+      <td>Last Name</td>
+      <td>Account Name</td>
+      <td>Title</td>
+      <td></td>
+    </tr>
+      <tr>
+        <apex:form>
+        <td><apex:inputtext value="{!firstname}"/></td>
+        <td><apex:inputtext value="{!lastname}"/></td>
+        <td><apex:inputtext value="{!accountname}"/></td>
+        <td><apex:inputtext value="{!title}"/></td>
+        <td><apex:commandbutton value="Filter" action="{!filter}"/></td>
+        </apex:form>
+      </tr>
+  </table>
   <apex:pageBlockTable value="{!Contacts}" var="contact">
       <apex:column>
         <apex:outputLink value="/{!contact}">{!contact.name}</apex:outputLink>
       </apex:column>
-
       <apex:column value="{!contact.accountid}"/>
       <apex:column value="{!contact.title}"/>
   </apex:pageBlockTable>
